@@ -1,30 +1,9 @@
-/*Fonts*/
-/*Vampire*/
-@font-face {
-  font-family: "Vampire";
-  src: url("/theme/limbo/assets/fonts/vampire/vampire-wars.ttf");
-}
-@font-face {
-  font-family: "Vampire";
-  src: url("/theme/limbo/assets/fonts/vampire/vampire-wars-italic.ttf");
-  font-style: italic;
-}
-
 :root{
   --bs-font-sans-serif: "Nunito", Helvetica, Arial, sans-serif;
 }
 
-/*DRAGGABLE*/
-.webkit-drag{
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-  user-select: none;
-}
-.webkit-drag.none{
-  -webkit-app-region: no-drag;
-}
-
 /*General*/
+
 .sidenav {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -294,4 +273,9 @@ body{
 /*APPERARANCE SETTINGS*/
 .fixed-plugin .badge {
   border: 1px solid hsla(0, 0%, 66%, 0.5);
+}
+
+/*BORDER RADIUS*/
+.border-radius-xl.bottom-only {
+  border-radius: 0 0 0.75rem 0.75rem;
 }

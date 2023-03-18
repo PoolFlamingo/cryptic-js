@@ -1,11 +1,18 @@
-const { contextBridge } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 const os = require('os');
 const JavaScriptObfuscator = require('javascript-obfuscator');
+const path = require("path");
 
 contextBridge.exposeInMainWorld("App", {
     platform: os.platform(),
     dev: process.env.NODE_ENV,
-    electronVersion: process.versions.electron
+    electronVersion: process.versions.electron,
+    projectRoot: path.join(__dirname, '../../../'),
+    path: {
+        join: (root, relpath)=>pathh.join(root, relpath)
+    },
+    ipcRenderer: ipcRenderer,
+    //createPopper: (reference, popper, options)=>createPopper(reference, popper, options)
 });
 
 contextBridge.exposeInMainWorld("JavaScriptObfuscator", {

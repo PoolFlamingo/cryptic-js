@@ -1,3 +1,131 @@
+/*Fonts*/
+/*Positive System*/
+@font-face {
+  font-family: "Positve System";
+  src: url(../fonts/positive_system/positive-system.otf);
+}
+
+/*Nunito Font*/
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Regular.ttf");
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Italic.ttf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-ExtraBold.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-SemiBoldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-ExtraLight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-ExtraLightItalic.ttf");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-MediumItalic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-MediumItalic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-Black.ttf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/nunito/Nunito-BlackItalic.ttf");
+  font-weight: 900;
+  font-style: italic;
+}
+
+.app-title {
+  font-family: "Positve System";
+  color: rgba(255, 255, 255, 0.6666) !important;
+  letter-spacing: 0.35rem;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-drag: none;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+}
+
 /*ROW & COLS*/
 .row {
     display: flex;
@@ -2833,4 +2961,145 @@ button {
 }
 .window-button.maximize:hover {
     background-image: url(../img/icons/mac-buttons/maximize-h.png);
+}
+
+/*DRAGGABLE*/
+.webkit-drag{
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+.webkit-drag.none{
+  -webkit-app-region: no-drag;
+}
+
+/*IMAGE SIZE*/
+.img-16 {
+  height: 16px !important;
+  width: 16px !important;
+}
+.img-16-h {
+  height: 16px !important;
+  width: auto !important;
+}
+.img-16-w {
+  height: auto !important;
+  width: 16px !important;
+}
+.img-32 {
+  height: 32px !important;
+  width: 32px !important;
+}
+.img-32-h {
+  height: 32px !important;
+  width: auto !important;
+}
+.img-32-w {
+  height: auto !important;
+  width: 32px !important;
+}
+
+/*Strong Shadows*/
+.str-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.str-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.60) !important;
+}
+
+.str-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.str-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.50), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.str-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.str-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.60) !important;
+}
+
+.str-shadow-lg.right {
+  box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.35), 4px 0 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.str-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.50), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.str-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+.str-shadow.all {
+  box-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.25), 0 2px 6px -1px rgba(0, 0, 0, 0.06),
+    4px 0 12px -1px rgba(0, 0, 0, 0.25), 2px 0 6px -1px rgba(0, 0, 0, 0.06),
+    -4px 0 12px -1px rgba(0, 0, 0, 0.25), -2px 0 6px -1px rgba(0, 0, 0, 0.06),
+    0 -4px 12px -1px rgba(0, 0, 0, 0.25), 0 -2px 6px -1px rgba(0, 0, 0, 0.06)
+  !important;
+}
+
+.str-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.60) !important;
+}
+
+.str-shadow-lg.all {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 
+    10px 0 15px -3px rgba(0, 0, 0, 0.35), 4px 0 6px -2px rgba(0, 0, 0, 0.05), 
+    -10px 0 15px -3px rgba(0, 0, 0, 0.35), -4px 0 6px -2px rgba(0, 0, 0, 0.05), 
+    0 -10px 15px -3px rgba(0, 0, 0, 0.35), 0 -4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.str-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.50), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/*Extra Strong Shadows*/
+.xstr-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.75), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.xstr-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.8) !important;
+}
+
+.xstr-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.75), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.xstr-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.75), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.xstr-shadow.right {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.75), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.xstr-shadow-sm.right {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.8) !important;
+}
+
+.xstr-shadow-lg.right {
+  box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.75), 4px 0 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.xstr-shadow-xl.right {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.75), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/*INNER SHADOWS*/
+.inner-shadow {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.my-half{
+  margin-top: 0.125rem !important;
+  margin-bottom: 0.125rem !important;
+}
+.mb-half{
+  margin-bottom: 0.125rem !important;
 }

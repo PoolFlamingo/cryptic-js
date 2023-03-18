@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require("electron");
+const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const path = require("path");
 
 const isDev=process.env.NODE_ENV!=="production";
@@ -11,7 +11,9 @@ function CreateMainWindow()
         height: 800,
         minWidth: 400,
         minHeight: 400,
-        //icon:
+        icon: "./res/img/icons/criptic-icon.png",
+        frame:false,
+        transparent:true,
         webPreferences:{
             contextIsolation:true,
             nodeIntegration:true,
@@ -35,6 +37,20 @@ app.whenReady().then(()=>{
         {
             mainWindow=CreateMainWindow();
         }
+    });
+
+    ipcMain.on('min-window', () => {
+        BrowserWindow.getFocusedWindow().minimize();
+    });
+    ipcMain.on('close-window', () => {
+        BrowserWindow.getFocusedWindow().close();
+    });
+    ipcMain.on('max-window', () => {
+        const currentWindow=BrowserWindow.getFocusedWindow();
+        if(currentWindow.isMaximized())
+            currentWindow.unmaximize();
+        else
+            currentWindow.maximize();
     });
 
     if(isDev)
