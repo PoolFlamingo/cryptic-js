@@ -1,0 +1,297 @@
+/*Fonts*/
+/*Vampire*/
+@font-face {
+  font-family: "Vampire";
+  src: url("/theme/limbo/assets/fonts/vampire/vampire-wars.ttf");
+}
+@font-face {
+  font-family: "Vampire";
+  src: url("/theme/limbo/assets/fonts/vampire/vampire-wars-italic.ttf");
+  font-style: italic;
+}
+
+:root{
+  --bs-font-sans-serif: "Nunito", Helvetica, Arial, sans-serif;
+}
+
+/*DRAGGABLE*/
+.webkit-drag{
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+.webkit-drag.none{
+  -webkit-app-region: no-drag;
+}
+
+/*General*/
+.sidenav {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sidenav.fixed-start+.main-content {
+  margin-left: 11rem;
+}
+
+.fixed-plugin .card {
+  z-index: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-bg);
+  border-radius: 10px;
+}
+
+body{
+  border-radius: 0.8rem;
+}
+
+.d-content{
+  display: contents !important;
+}
+
+.no-scroll-body {
+  --scrollbar-bg: #00000066;
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.dark-version.no-scroll-body {
+  --scrollbar-bg: #ffffff91;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+.cursor-pointer-i{
+  cursor: pointer !important;
+}
+.cursor-default{
+  cursor: default;
+}
+.cursor-default-i{
+  cursor: default !important;
+}
+
+.menu-img {
+  --menu-img: url(../../../../img/icons/menu/dot.png);
+
+  background-image: var(--menu-img);
+  /* background-color: var(--menu-img-color); */
+  background-repeat: no-repeat;
+  background-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+/*WINDOW BUTTONS*/
+.menu-circle{
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+}
+
+.window-button{
+  --size: 12px;
+  background-repeat: no-repeat;
+  background-size: var(--size);
+  padding: 0;
+  width: var(--size);
+  height: var(--size);
+  cursor: default !important;
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+.window-button.close{
+  background-image: url(../../../../img/icons/mac-buttons/close.png);
+}
+.window-button.close:hover {
+  background-image: url(../../../../img/icons/mac-buttons/close-h.png);
+}
+
+.window-button.minimize {
+  background-image: url(../../../../img/icons/mac-buttons/minimize.png);
+}
+.window-button.minimize:hover {
+  background-image: url(../../../../img/icons/mac-buttons/minimize-h.png);
+}
+
+.window-button.maximize{
+  background-image: url(../../../../img/icons/mac-buttons/maximize.png);
+}
+.window-button.maximize:hover {
+  background-image: url(../../../../img/icons/mac-buttons/maximize-h.png);
+}
+
+/*Text*/
+.t-ellipsis{
+  text-overflow: ellipsis;
+}
+.t-ellipsis.custom{
+  --line-clamp: none;
+
+  overflow: hidden;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp);
+}
+
+.header-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.body-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 1em;
+}
+.body-ellipsis.r4{
+  -webkit-line-clamp: 4;
+}
+
+/*Strong Shadows*/
+.str-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.str-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.60) !important;
+}
+
+.str-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.str-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.50), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/*Extra Strong Shadows*/
+.xstr-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.75), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.xstr-shadow-sm {
+  box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.8) !important;
+}
+
+.xstr-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.75), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.xstr-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.75), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/*INNER SHADOWS*/
+.inner-shadow {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.50), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/*Buttons*/
+.no-click{
+  pointer-events:none;
+}
+.no-click-i{
+  pointer-events:none !important;
+}
+
+.disable{
+  pointer-events: none !important;
+  filter: brightness(0.5) !important;
+}
+
+.dropdown.profile .dropdown-toggle{
+  background-color: transparent;
+  border: 0;
+}
+.dropdown.profile .avatar{
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border: 1px solid hsla(0, 0%, 66%, 0.5);
+}
+.dropdown.profile .dropdown-toggle::after{
+  display: none;
+}
+
+.dropdown-menu[data-popper-placement="bottom-end"]:before {
+  left: auto;
+  right: 10px;
+}
+
+/*OUTLINED FIXED INPUT*/
+.input-group.input-group-outline-fixed .form-control {
+  height: 30px;
+
+  background-color: rgba(82, 82, 82, 0.349);
+}
+
+.input-group.input-group-outline-fixed .form-control {
+  background: none;
+  border: 1px solid #8888884b;
+  border-radius: 0.375rem;
+  border-top-left-radius: 0.375rem !important;
+  border-bottom-left-radius: 0.375rem !important;
+  padding: 0.625rem 0.75rem !important;
+  line-height: 1.3 !important;
+  font-size: 12px;
+  color: hsl(0, 0%, 66%) !important;
+}
+.input-group.input-group-outline-fixed.is-focused .form-control,
+.input-group.input-group-outline-fixed.focused .form-control {
+  border: 1px solid var(--bs-info);
+  transition: border 0.3s ease;
+  line-height: 1.3 !important;
+}
+.input-group.input-group-outline-fixed .form-control::placeholder,
+.input-group.input-group-outline-fixed .form-control::placeholder {
+  font-size: 12px;
+  color: #a8a8a84b;
+}
+.input-group.input-group-outline-fixed.is-focused .form-control::placeholder,
+.input-group.input-group-outline-fixed.focused .form-control::placeholder {
+  color: transparent;
+}
+
+/*SIDEBAR & MAIN*/
+.navbar-vertical.navbar-expand-xs {
+  max-width: 10.5rem !important;
+}
+
+.nav-item.active .nav-link.active {
+  background-image: linear-gradient(195deg,#e91e63,#e91e63) !important;
+}
+
+.navbar-vertical .nav-item.main>.nav-link {
+  background-color: rgba(199, 199, 199, 0.1);
+}
+.navbar-vertical .nav-item.main>.nav-link:hover {
+  background-color: rgba(199, 199, 199, 0.2);
+}
+.navbar-vertical .nav-link:hover {
+  background-color: rgba(199, 199, 199, 0.2);
+}
+
+/*APPERARANCE SETTINGS*/
+.fixed-plugin .badge {
+  border: 1px solid hsla(0, 0%, 66%, 0.5);
+}
