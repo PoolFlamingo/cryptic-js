@@ -5,7 +5,7 @@ const path = require("path");
 
 contextBridge.exposeInMainWorld("App", {
     platform: os.platform(),
-    dev: process.env.NODE_ENV,
+    dev: process.env.APP_DEV ? (process.env.APP_DEV.trim() == "true") : false,
     electronVersion: process.versions.electron,
     projectRoot: path.join(__dirname, '../../../'),
     path: {

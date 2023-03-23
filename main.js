@@ -1,7 +1,7 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const path = require("path");
 
-const isDev=process.env.NODE_ENV!=="production";
+const isDev = process.env.APP_DEV ? (process.env.APP_DEV.trim() == "true") : false;
 
 function CreateMainWindow()
 {
