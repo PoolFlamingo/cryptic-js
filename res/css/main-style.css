@@ -108,9 +108,10 @@
   font-family: "Positve System";
   color: rgba(255, 255, 255, 0.6666) !important;
   letter-spacing: 0.35rem;
+  text-transform: uppercase;
 }
 
-.no-select {
+* {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */

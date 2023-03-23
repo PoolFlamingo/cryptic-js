@@ -11,7 +11,7 @@ function CreateMainWindow()
         height: 800,
         minWidth: 400,
         minHeight: 400,
-        icon: "./res/img/icons/criptic-icon.png",
+        icon: "./res/img/icons/cryptic-icon.ico",
         frame:false,
         transparent:true,
         webPreferences:{
