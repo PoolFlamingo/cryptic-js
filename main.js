@@ -1,5 +1,6 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const path = require("path");
+const os=require("os");
 
 const isDev = process.env.APP_DEV ? (process.env.APP_DEV.trim() == "true") : false;
 
@@ -16,7 +17,7 @@ function CreateMainWindow()
         transparent:true,
         webPreferences:{
             contextIsolation:true,
-            nodeIntegration:true,
+            nodeIntegration:false,
             preload: path.join(__dirname, "./src/js/misc/preload.js")
         },
         autoHideMenuBar: true
@@ -32,6 +33,35 @@ function CreateMainWindow()
 
 app.whenReady().then(()=>{
     var mainWindow=CreateMainWindow();
+
+    ipcMain.once("App.Initialize", (event)=>{
+        //Convertir esto en funciones separadas para obtenerlos paths.
+        event.returnValue = {
+            app: {
+                platform: os.platform(),
+                projectPath: app.getAppPath(),
+                paths:{
+                    appData: app.getPath("appData"),
+                    crashDumps: app.getPath("crashDumps"),
+                    desktop: app.getPath("desktop"),
+                    documents: app.getPath("documents"),
+                    downloads: app.getPath("downloads"),
+                    exe: app.getPath("exe"),
+                    home: app.getPath("home"),
+                    logs: app.getPath("logs"),
+                    module: app.getPath("module"),
+                    music: app.getPath("music"),
+                    pictures: app.getPath("pictures"),
+                    recent: app.getPath("recent"),
+                    sessionData: app.getPath("sessionData"),
+                    temp: app.getPath("temp"),
+                    userData: app.getPath("userData"),
+                    videos: app.getPath("videos")
+                }
+            }
+        }
+    });
+
     app.on('activate', ()=>{
         if(BrowserWindow.getAllWindows().length===0)
         {

@@ -25,7 +25,7 @@ export class ObfuscatorForm extends BaseJSElement
     //#region Protected Methods
     _Obfuscate()
     {
-        this._formOptions.
+        this._formOptions
     }
     //#endregion
 }

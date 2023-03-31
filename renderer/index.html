@@ -8,12 +8,21 @@
 	<link rel="stylesheet" href="../res/css/main-style.css">
 	<link rel="stylesheet" href="../res/theme/limbo/assets/css/material-dashboard.css">
 	<link rel="stylesheet" href="../res/theme/limbo/assets/css/md_custom_style.css">
+	<title>Cryptic JS</title>
 	<script type="importmap">
 		{
-			"javascript-obfuscator": "../node_modules/javascript-obfuscator/typings/index.d.ts"
+			"javascript-obfuscator": "../node_modules/javascript-obfuscator/dist/index.js",
+			"@electron/remote":"../node_modules/@electron/remote/main/index.js"
 		}
 	</script>
-	<title>Cryptic JS</title>
+	<script type="module">
+		import GlobalConstants from "../src/js/classes/global/global-const.js"
+		/**@type {import("electron").IpcRenderer} */
+		const ipcRenderer=window.App.ipcRenderer;
+
+		/**@type {Api} */
+		GlobalConstants.initialize(ipcRenderer.sendSync("App.Initialize"));
+	</script>
 </head>
 <body class="dark-version g-sidenav-show bg-gray-200">
 	<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0">

@@ -4,18 +4,26 @@
  */
 //#endregion
 
+import GlobalConstants from "../classes/global/global-const.js";
+
+function pathJoin(base, rel)
+{
+    return base+rel;
+}
+
 /**
  * Convierte una ruta relativa (desde la raíz) a una ruta absoluta.
- * @param {String} pathX 
+ * @param {String} path 
  * @param {Boolean} fix
  * @returns {String}
  */
-export function ToAbsolutePath(pathX, fix=true)
+export function ToAbsolutePath(path, fix=true)
 {
-    let path=window.App.path.join(window.App.projectRoot, pathX);
+    console.log(GlobalConstants.Api.projectPath);
+    let pathX=pathJoin(GlobalConstants.Api.projectPath, path);
     if(fix)
-        path=path.replace(/\\/g, '/');
-    return path;
+        pathX=pathX.replace(/\\/g, '/');
+    return pathX;
 }
 
 /**
