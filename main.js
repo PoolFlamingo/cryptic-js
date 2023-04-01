@@ -34,7 +34,7 @@ function CreateMainWindow()
 app.whenReady().then(()=>{
     var mainWindow=CreateMainWindow();
 
-    ipcMain.once("App.Initialize", (event)=>{
+    ipcMain.on("App.Initialize", (event)=>{
         //Convertir esto en funciones separadas para obtenerlos paths.
         event.returnValue = {
             app: {

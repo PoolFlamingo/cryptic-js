@@ -1,6 +1,6 @@
 import { RequestStatus, SendHttpRequest } from "../../libs/general.js";
 import BaseJSElement from "../base/base-element.js";
-import { Reactor } from "../reactor.js";
+import { Reactor } from "../global/reactor.js";
 
 export class WindowButtons extends BaseJSElement
 {

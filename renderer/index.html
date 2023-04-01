@@ -4,25 +4,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'"> -->
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
 	<link rel="stylesheet" href="../res/css/main-style.css">
 	<link rel="stylesheet" href="../res/theme/limbo/assets/css/material-dashboard.css">
 	<link rel="stylesheet" href="../res/theme/limbo/assets/css/md_custom_style.css">
 	<title>Cryptic JS</title>
-	<script type="importmap">
-		{
-			"javascript-obfuscator": "../node_modules/javascript-obfuscator/dist/index.js",
-			"@electron/remote":"../node_modules/@electron/remote/main/index.js"
-		}
-	</script>
-	<script type="module">
-		import GlobalConstants from "../src/js/classes/global/global-const.js"
-		/**@type {import("electron").IpcRenderer} */
-		const ipcRenderer=window.App.ipcRenderer;
-
-		/**@type {Api} */
-		GlobalConstants.initialize(ipcRenderer.sendSync("App.Initialize"));
-	</script>
+	<script type="importmap" src="../src/json/importmaps/index-im.json"></script>
+	<script src="../src/js/scripts/42d5adcbca.js" crossorigin="anonymous"></script>
+	<script src="../node_modules/choices.js/public/assets/scripts/choices.min.js"></script>
+	<script type="module" src="../src/js/scripts/initialize-data.js"></script>
 </head>
 <body class="dark-version g-sidenav-show bg-gray-200">
 	<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0">
@@ -43,12 +33,35 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="card">sldfhskhfdkshf</div>
+      <div class="card">
+				<div class="row m-3">
+					<div class="col-3">
+						<p class="text-sm">Options Preset</p>
+						<button type="button" class="btn w-100 me-3 mb-0 bg-gradient-secondary">Reset Default</button>
+						<hr class="horizontal light my-2">
+						<select class="choices">
+							<option value="default">Default</option>
+							<option value="low">Low</option>
+							<option value="medium">Medium</option>
+							<option value="high">High</option>
+						</select>
+					</div>
+					<div class="col-3">
+
+					</div>
+					<div class="col-3">
+
+					</div>
+					<div class="col-3">
+
+					</div>
+				</div>
+			</div>
     </div>
   </main>
 </body>
 <!--Theme Scripts-->
-
+<script type="module" src="../src/js/scripts/index-footer.js"></script>
 <!--END Theme Scripts-->    
 <script type="module" src="../src/js/scripts/index.js"></script>
 </html>

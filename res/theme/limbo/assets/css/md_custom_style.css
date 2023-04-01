@@ -279,3 +279,8 @@ body{
 .border-radius-xl.bottom-only {
   border-radius: 0 0 0.75rem 0.75rem;
 }
+
+/*CHOICES*/
+.dark-version .choices__list--dropdown:before {
+  color: #202940;
+}

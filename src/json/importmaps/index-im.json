@@ -1,0 +1,4 @@
+{
+    "javascript-obfuscator": "../../../node_modules/javascript-obfuscator/dist/index.js",
+    "choices-js": "../../../node_modules/choices.js/public/types/src/index.d.ts"
+}
