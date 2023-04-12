@@ -1,62 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
-	<link rel="stylesheet" href="../res/css/main-style.css">
-	<link rel="stylesheet" href="../res/theme/limbo/assets/css/material-dashboard.css">
-	<link rel="stylesheet" href="../res/theme/limbo/assets/css/md_custom_style.css">
-	<title>Cryptic JS</title>
-	<script type="importmap" src="../src/json/importmaps/index-im.json"></script>
-	<script src="../src/js/scripts/42d5adcbca.js" crossorigin="anonymous"></script>
-	<script src="../node_modules/choices.js/public/assets/scripts/choices.min.js"></script>
-	<script type="module" src="../src/js/scripts/initialize-data.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+  <link rel="stylesheet" href="../res/css/main-style.css">
+  <link rel="stylesheet" href="../res/theme/limbo/assets/css/material-dashboard.css">
+  <link rel="stylesheet" href="../res/theme/limbo/assets/css/md_custom_style.css">
+  <title>Cryptic JS</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "javascript-obfuscator": "../node_modules/javascript-obfuscator/dist/index.js",
+        "choices-js": "../node_modules/choices.js/public/types/src/index.d.ts"
+      }
+    }
+  </script>
+  <script src="../src/js/scripts/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="../node_modules/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script type="module" src="../src/js/scripts/initialize-data.js"></script>
 </head>
 <body class="dark-version g-sidenav-show bg-gray-200">
-	<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0">
     <!-- Navbar -->
     <nav class="navbar card navbar-main navbar-expand-lg position-sticky px-0 mx-2 str-shadow-lg border-radius-xl bottom-only webkit-drag" id="navbarBlur" data-scroll="true">
       <div class="row w-100">
-				<div class="col">
-					<div id="window-buttons" class="menu-circle position-absolute webkit-drag none" style="top:-8px;"></div>
-				</div>
-				<div class="col-auto">
-					<img class="mt-1 no-select webkit-drag none" src="../res/img/icons/cryptic-icon.png" style="height: 42px;">
-				</div>
-				<div class="col-auto">
-					<h2 class="app-title mb-0 no-select webkit-drag none">Cryptic JS</h2>
-				</div>
-				<div class="col"></div>
-			</div>
+        <div class="col">
+          <div id="window-buttons" class="menu-circle position-absolute webkit-drag none" style="top:-8px;"></div>
+        </div>
+        <div class="col-auto">
+          <img class="mt-1 no-select webkit-drag none" src="../res/img/icons/cryptic-icon.png" style="height: 42px;">
+        </div>
+        <div class="col-auto">
+          <h2 class="app-title mb-0 no-select webkit-drag none">Cryptic JS</h2>
+        </div>
+        <div class="col"></div>
+      </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="card">
-				<div class="row m-3">
-					<div class="col-3">
-						<p class="text-sm">Options Preset</p>
-						<button type="button" class="btn w-100 me-3 mb-0 bg-gradient-secondary">Reset Default</button>
-						<hr class="horizontal light my-2">
-						<select class="choices">
-							<option value="default">Default</option>
-							<option value="low">Low</option>
-							<option value="medium">Medium</option>
-							<option value="high">High</option>
-						</select>
-					</div>
-					<div class="col-3">
+        <div class="row m-3">
+          <div class="col-3">
+            <p class="text-sm">Options Preset</p>
+            <button id="reset-button" type="button" class="btn w-100 me-3 mb-0 bg-gradient-secondary">Reset Default</button>
+            <hr class="horizontal light my-2">
+            <select id="presets" class="choices">
+              <option value="default">Default</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+            <hr class="horizontal light my-2">
+            <select id="target" class="choices">
+              <option value="browser">Browser</option>
+              <option value="browser-no-eval">Browser No Eval</option>
+              <option value="node">Node</option>
+            </select>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Seed</label>
+              <input id="seed" type="text" class="form-control" value="0">
+            </div>
+            <div class="form-check">
+              <input id="console-output" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Disable console output</label>
+            </div>
+            <div class="form-check">
+              <input id="self-def" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Self defending</label>
+            </div>
+            <div class="form-check">
+              <input id="debug-protection" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Debug Protection</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Debug protection interval</label>
+              <input id="debug-protection-i" type="text" class="form-control">
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="ignore-imports" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Ignore imports</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Domain lock</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
+              <input id="domain-lock" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Domain Lock Redirect Url</label>
+              <input id="domain-lock-redirect" type="text" class="form-control" value="about:blank">
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="enable-maps" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Enable source map</label>
+            </div>
+            <select id="source-map-mode" class="choices">
+              <option value="inline">Inline</option>
+              <option value="separate">Separate</option>
+            </select>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Source map base URL</label>
+              <input id="map-base-url" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Source map file name</label>
+              <input id="map-file-name" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-3">
+  
+          </div>
+          <div class="col-3">
 
-					</div>
-					<div class="col-3">
+          </div>
+          <div class="col-3">
 
-					</div>
-					<div class="col-3">
-
-					</div>
-				</div>
-			</div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </body>

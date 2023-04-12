@@ -19,11 +19,24 @@ function pathJoin(base, rel)
  */
 export function ToAbsolutePath(path, fix=true)
 {
-    console.log(GlobalConstants.Api.projectPath);
     let pathX=pathJoin(GlobalConstants.Api.projectPath, path);
     if(fix)
-        pathX=pathX.replace(/\\/g, '/');
+        pathX=FixReverseSlash(pathX);
     return pathX;
+}
+
+/**
+ * 
+ * @param {String} path 
+ * @param {Boolean} remove_dup 
+ * @returns {String}
+ */
+export function FixReverseSlash(path, remove_dup=true)
+{
+    path=path.replace(/\\/g, '/');
+    if(remove_dup)
+        path=path.replace(/\/\//g, '/');
+    return path;
 }
 
 /**
@@ -31,7 +44,7 @@ export function ToAbsolutePath(path, fix=true)
  * @param {Object} object 
  * @returns {Boolean}
  */
-export function IsValid(object)
+function IsValid(object)
 {
     return typeof object!="undefined" && object!=null;
 }
@@ -41,7 +54,7 @@ export function IsValid(object)
  * @enum {Number}
  * @readonly
  */
-export const RequestStatus=Object.freeze({
+const RequestStatus=Object.freeze({
     /** The request has not yet been processed. */
     None:0,
     /** The request is currently being processed. */
@@ -63,7 +76,7 @@ export const RequestStatus=Object.freeze({
  * @param {boolean=} async Choose if you want the request to be synchronous or asynchronous. @default async=true
  * @returns {XMLHttpRequest}
  */
-export function SendHttpRequest(url, data, callback, method="POST", async=true)
+function SendHttpRequest(url, data, callback, method="POST", async=true)
 {
     const xhr=new XMLHttpRequest();
     const fd=new FormData();
@@ -88,7 +101,7 @@ export function SendHttpRequest(url, data, callback, method="POST", async=true)
 }
 
 /**
- * Send a request to the selected url to load a template.
+ * Sync loads a template with the selected path. If fails returns false.
  * @param {string} url Target URL for request the template.
  * @returns {String | false}
  */
@@ -97,9 +110,62 @@ export function LoadTemplate(url)
     const xhr=new XMLHttpRequest();
     const fd=new FormData();
 
-    xhr.open("GET", url, false);
+    xhr.open("GET", ToAbsolutePath(url), false);
     xhr.send(fd);
     return xhr.status==200?xhr.responseText: false;
 }
 
-export function none(){return;}
+/**
+ * Send a sync request to the selected url to load a JSON.
+ * @param {string} url Target URL for request the JSON.
+ * @returns {String | false}
+ */
+export function LoadJSONFile(url)
+{
+    const result=LoadTemplate(url);
+    return JSON.parse(result);
+}
+
+/**
+ * Remaps a value provided with the internal minimums and maximums to a value 
+ * between the external values. Optionally you can specify if you want to use it 
+ * without the internal limits.
+ * @param {Number} value 
+ * @param {Number} oldMin 
+ * @param {Number} oldMax 
+ * @param {Number} newMin 
+ * @param {Number} newMax 
+ * @param {boolean} clamp
+ * @returns {Number}
+ */
+function RemapValue(value, oldMin, oldMax, newMin, newMax, clamp=true)
+{
+    if(clamp)
+        value=Clamp(value, oldMin, oldMax);
+
+    return ((value - oldMin) * (newMax - newMin)) / (oldMax - oldMin) + newMin;
+}
+
+/**
+ * Maintains the value within specified limits.
+ * @param {Number} value 
+ * @param {Number} min 
+ * @param {Number} max 
+ * @returns {Number}
+ */
+function Clamp(value, min=0, max=1) 
+{
+    return Math.min(Math.max(value, min), max);
+} 
+ 
+function none(){return;}
+
+//EXPORTS
+export {
+    none,
+    Clamp,
+    IsValid,
+    RemapValue,
+    RequestStatus,
+    SendHttpRequest
+};
