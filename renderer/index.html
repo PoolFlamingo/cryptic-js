@@ -46,6 +46,7 @@
             <p class="text-sm">Options Preset</p>
             <button id="reset-button" type="button" class="btn w-100 me-3 mb-0 bg-gradient-secondary">Reset Default</button>
             <hr class="horizontal light my-2">
+            <h6>Options Preset</h6>
             <select id="presets" class="choices">
               <option value="default">Default</option>
               <option value="low">Low</option>
@@ -53,6 +54,7 @@
               <option value="high">High</option>
             </select>
             <hr class="horizontal light my-2">
+            <h6>Target</h6>
             <select id="target" class="choices">
               <option value="browser">Browser</option>
               <option value="browser-no-eval">Browser No Eval</option>
@@ -60,7 +62,7 @@
             </select>
             <div class="input-group input-group-outline my-3">
               <label class="form-label">Seed</label>
-              <input id="seed" type="text" class="form-control" value="0">
+              <input id="seed" type="number" class="form-control" value="0">
             </div>
             <div class="form-check">
               <input id="console-output" class="form-check-input" type="checkbox" value="" checked="">
@@ -76,7 +78,7 @@
             </div>
             <div class="input-group input-group-outline my-3">
               <label class="form-label">Debug protection interval</label>
-              <input id="debug-protection-i" type="text" class="form-control">
+              <input id="debug-protection-i" type="number" class="form-control" value="0">
             </div>
             <hr class="horizontal light my-2">
             <div class="form-check">
@@ -97,6 +99,7 @@
               <input id="enable-maps" class="form-check-input" type="checkbox" value="" checked="">
               <label class="custom-control-label">Enable source map</label>
             </div>
+            <h6>Source map mode</h6>
             <select id="source-map-mode" class="choices">
               <option value="inline">Inline</option>
               <option value="separate">Separate</option>
@@ -111,13 +114,165 @@
             </div>
           </div>
           <div class="col-3">
-  
+            <h5>Strings Transformations</h5>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="string-array" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array</label>
+            </div>
+            <div class="form-check">
+              <input id="string-array-rotate" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array rotate</label>
+            </div>
+            <div class="form-check">
+              <input id="string-array-shuffle" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array shuffle</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">String array threshold</label>
+              <input id="map-base-url" type="number" class="form-control" value="0.75">
+            </div>
+            <div class="form-check">
+              <input id="string-array-IS" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array index shift</label>
+            </div>
+            <h6>String array indexes type</h6>
+            <select id="string-array-IT" class="choices">
+              <option value="hexa-number">Hexadecimal number</option>
+              <option value="hexa-string">Hexadecimal numeric string</option>
+            </select>
+            <div class="form-check">
+              <input id="string-array-calls" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array calls transform</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">String array calls transform threshold</label>
+              <input id="string-array-CT" type="number" class="form-control" value="0.5">
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">String array wrappers count</label>
+              <input id="string-array-WC" type="number" class="form-control" value="1">
+            </div>
+            <h6>String array wrappers type</h6>
+            <select id="string-array-IT" class="choices">
+              <option value="variable">Variable</option>
+              <option value="function">Function</option>
+            </select>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">String Array Wrappers Parameters Maximum Count</label>
+              <input id="string-array-WCMC" type="number" class="form-control" value="2">
+            </div>
+            <div class="form-check">
+              <input id="string-array-WCC" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">String array wrappers chained calls</label>
+            </div>
+            <h6>String array encoding</h6>
+            <select id="string-array-encode" class="choices">
+              <option value="none">None</option>
+              <option value="base64">Base64</option>
+              <option value="rc4">rc4</option>
+            </select>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="split-strings" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Split strings</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Split strings chunk length</label>
+              <input id="split-strings-CH" type="number" class="form-control" value="10">
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="split-strings" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Unicode escape sequence</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Force transform strings</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
+              <input id="force-trans-strings" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Reserved strings</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
+              <input id="reserved-strings" type="text" class="form-control">
+            </div>
           </div>
           <div class="col-3">
-
+            <h5>Identifiers Transformations</h5>
+            <hr class="horizontal light my-2">
+            <h6>Identifier name generator</h6>
+            <select id="identifiers-names-generator" class="choices">
+              <option value="dictionary">Dictionary</option>
+              <option value="hexadecimal">Hexadecimal</option>
+              <option value="mangled">Mangled</option>
+              <option value="mangled-shuffled">Mangled-Shuffled</option>
+            </select>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Identifiers dictionary</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
+              <input id="ide-dictionary" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Identifiers prefix</label>
+              <input id="ide-prefix" type="text" class="form-control">
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="rename-globals" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Rename globals</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="rename-props" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Rename properties</label>
+            </div>
+            <select id="rename-props-mode" class="choices">
+              <option value="safe">Safe</option>
+              <option value="unsafe">Unsafe</option>
+            </select>
+            <hr class="horizontal light my-2">
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Reserved Names</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
+              <input id="reserved-names" type="text" class="form-control">
+            </div>
           </div>
           <div class="col-3">
-
+            <h5>Other Transformations</h5>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="compact" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Compact</label>
+            </div>
+            <div class="form-check">
+              <input id="simplify" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Simplify</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="transform-obj-keys" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Transform object keys</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="transform-obj-keys" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Numbers to expressions</label>
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="control-flow-flat" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Control flow flattening</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Control flow flat threshold</label>
+              <input id="control-flow-flat-t" type="number" class="form-control" value="0.75">
+            </div>
+            <hr class="horizontal light my-2">
+            <div class="form-check">
+              <input id="dead-code" class="form-check-input" type="checkbox" value="" checked="">
+              <label class="custom-control-label">Dead code injection</label>
+            </div>
+            <div class="input-group input-group-outline my-3">
+              <label class="form-label">Deadcode threshold</label>
+              <input id="dead-code-t" type="number" class="form-control" value="0.75">
+            </div>
           </div>
         </div>
       </div>
