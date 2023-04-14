@@ -22,7 +22,7 @@
   <script type="module" src="../src/js/scripts/initialize-data.js"></script>
 </head>
 <body class="dark-version g-sidenav-show bg-gray-200">
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ms-0 d-flex flex-column">
     <!-- Navbar -->
     <nav class="navbar card navbar-main navbar-expand-lg position-sticky px-0 mx-2 str-shadow-lg border-radius-xl bottom-only webkit-drag" id="navbarBlur" data-scroll="true">
       <div class="row w-100">
@@ -39,7 +39,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="container-fluid mt-4 mb-3 overflow-x-hidden align-self-lg-stretch border-radius-lg">
       <div class="card">
         <div class="row m-3">
           <div class="col-3">
@@ -47,19 +47,23 @@
             <button id="reset-button" type="button" class="btn w-100 me-3 mb-0 bg-gradient-secondary">Reset Default</button>
             <hr class="horizontal light my-2">
             <h6>Options Preset</h6>
-            <select id="presets" class="choices">
-              <option value="default">Default</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="presets" class="choices">
+                <option value="default">Default</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
             <hr class="horizontal light my-2">
             <h6>Target</h6>
-            <select id="target" class="choices">
-              <option value="browser">Browser</option>
-              <option value="browser-no-eval">Browser No Eval</option>
-              <option value="node">Node</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="target" class="choices">
+                <option value="browser">Browser</option>
+                <option value="browser-no-eval">Browser No Eval</option>
+                <option value="node">Node</option>
+              </select>
+            </div>
             <h6>Seed</h6>
             <div class="input-group input-group-outline my-3">
               <input id="seed" type="number" class="form-control" value="0">
@@ -100,10 +104,12 @@
               <label class="custom-control-label">Enable source map</label>
             </div>
             <h6>Source map mode</h6>
-            <select id="source-map-mode" class="choices">
-              <option value="inline">Inline</option>
-              <option value="separate">Separate</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="source-map-mode" class="choices">
+                <option value="inline">Inline</option>
+                <option value="separate">Separate</option>
+              </select>
+            </div>
             <div class="input-group input-group-outline my-3">
               <label class="form-label">Source map base URL</label>
               <input id="map-base-url" type="text" class="form-control">
@@ -137,10 +143,12 @@
               <label class="custom-control-label">String array index shift</label>
             </div>
             <h6>String array indexes type</h6>
-            <select id="string-array-IT" class="choices">
-              <option value="hexa-number">Hexadecimal number</option>
-              <option value="hexa-string">Hexadecimal numeric string</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="string-array-IT" class="choices">
+                <option value="hexa-number">Hexadecimal number</option>
+                <option value="hexa-string">Hexadecimal numeric string</option>
+              </select>
+            </div>
             <div class="form-check">
               <input id="string-array-calls" class="form-check-input" type="checkbox" value="" checked="">
               <label class="custom-control-label">String array calls transform</label>
@@ -154,10 +162,12 @@
               <input id="string-array-WC" type="number" class="form-control" value="1">
             </div>
             <h6>String array wrappers type</h6>
-            <select id="string-array-IT" class="choices">
-              <option value="variable">Variable</option>
-              <option value="function">Function</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="string-array-IT" class="choices">
+                <option value="variable">Variable</option>
+                <option value="function">Function</option>
+              </select>
+            </div>
             <h6>String Array Wrappers Parameters Maximum Count</h6>
             <div class="input-group input-group-outline my-3">
               <input id="string-array-WCMC" type="number" class="form-control" value="2">
@@ -167,11 +177,13 @@
               <label class="custom-control-label">String array wrappers chained calls</label>
             </div>
             <h6>String array encoding</h6>
-            <select id="string-array-encode" class="choices">
-              <option value="none">None</option>
-              <option value="base64">Base64</option>
-              <option value="rc4">rc4</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="string-array-encode" class="choices">
+                <option value="none">None</option>
+                <option value="base64">Base64</option>
+                <option value="rc4">rc4</option>
+              </select>
+            </div>
             <hr class="horizontal light my-2">
             <div class="form-check">
               <input id="split-strings" class="form-check-input" type="checkbox" value="" checked="">
@@ -200,12 +212,14 @@
             <h5>Identifiers Transformations</h5>
             <hr class="horizontal light my-2">
             <h6>Identifier name generator</h6>
-            <select id="identifiers-names-generator" class="choices">
-              <option value="dictionary">Dictionary</option>
-              <option value="hexadecimal">Hexadecimal</option>
-              <option value="mangled">Mangled</option>
-              <option value="mangled-shuffled">Mangled-Shuffled</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="identifiers-names-generator" class="choices">
+                <option value="dictionary">Dictionary</option>
+                <option value="hexadecimal">Hexadecimal</option>
+                <option value="mangled">Mangled</option>
+                <option value="mangled-shuffled">Mangled-Shuffled</option>
+              </select>
+            </div>
             <div class="input-group input-group-outline my-3">
               <label class="form-label">Identifiers dictionary</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
               <input id="ide-dictionary" type="text" class="form-control">
@@ -224,10 +238,12 @@
               <input id="rename-props" class="form-check-input" type="checkbox" value="" checked="">
               <label class="custom-control-label">Rename properties</label>
             </div>
-            <select id="rename-props-mode" class="choices">
-              <option value="safe">Safe</option>
-              <option value="unsafe">Unsafe</option>
-            </select>
+            <div class="input-group-outline">
+              <select id="rename-props-mode" class="choices">
+                <option value="safe">Safe</option>
+                <option value="unsafe">Unsafe</option>
+              </select>
+            </div>
             <hr class="horizontal light my-2">
             <div class="input-group input-group-outline my-3">
               <label class="form-label">Reserved Names</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->

@@ -251,6 +251,50 @@ body{
   color: transparent;
 }
 
+/*OUTLINE CHOICES*/
+.input-group-outline .choices .choices__list.choices__list--single,
+.input-group-outline .choices .choices__list.choices__list--single:focus {
+  background: none;
+	border: 1px solid #797f8d;
+	border-radius: 0.375rem;
+	border-top-left-radius: 0.375rem !important;
+	border-bottom-left-radius: 0.375rem !important;
+	padding: 0.75rem 0.75rem 0.4rem !important;
+	line-height: 0.9 !important;
+}
+
+.input-group-outline .choices[data-type*='select-one']:after {
+  content: "\f107";
+	font: normal normal normal 14px/1 FontAwesome;
+	position: absolute;
+	right: 25px;
+	top: 22px;
+	pointer-events: none;
+	transition: 0.3s ease;
+}
+
+.dark-version .input-group-outline .choices .choices__input {
+	background: none;
+	border: 1px solid #797f8d;
+	border-radius: 0.375rem;
+	border-top-left-radius: 0.375rem !important;
+	border-bottom-left-radius: 0.375rem !important;
+	padding: 0.75rem 0.25rem 0.4rem !important;
+	line-height: 0.9 !important;
+	color: #fff;
+}
+
+.choices .input-group-outline .choices__input {
+	background: none;
+	border: 1px solid #797f8d;
+	border-radius: 0.375rem;
+	border-top-left-radius: 0.375rem !important;
+	border-bottom-left-radius: 0.375rem !important;
+	padding: 0.75rem 0.75rem 0.4rem !important;
+  margin-left: 0.5rem !important;
+	line-height: 0.9 !important;
+}
+
 /*SIDEBAR & MAIN*/
 .navbar-vertical.navbar-expand-xs {
   max-width: 10.5rem !important;
