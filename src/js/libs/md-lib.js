@@ -280,24 +280,63 @@ import { IsValid } from "./general.js";
 export function EnableRippleEffect(element)
 {
     element.addEventListener("click", (event)=>{
-        /**@type {HTMLElement} */
-        let ele = event.target;
-        /**@type {HTMLElement} */
-        let effect = ele.querySelector(".ripple");
-        if(!IsValid(effect))
-        {
-            effect = document.createElement("span");
-            effect.classList.add("ripple");
-        }
-        effect.style.width = effect.style.height = Math.max(ele.offsetWidth, ele.offsetHeight) + "px";
-        effect.style.position="absolute";
-        ele.appendChild(effect);
-        effect.style.left = event.offsetX - effect.offsetWidth / 2 + "px";
-        effect.style.top = event.offsetY - effect.offsetHeight / 2 + "px";
+        RippleEffect(event.target, event.offsetX, event.offsetY);
+    });
+}
+
+/**
+ * 
+ * @param {HTMLElement} ele 
+ * @param {Number} offsetX
+ * @param {Number} offsetY
+ * @param {Boolean} remove
+ */
+export function RippleEffect(ele, offsetX, offsetY, remove=true)
+{
+    /**@type {HTMLElement} */
+    let effect = ele.querySelector(".ripple");
+    if(!IsValid(effect))
+    {
+        effect = document.createElement("span");
         effect.classList.add("ripple");
-        setTimeout(()=>{
-            if(IsValid(effect) && IsValid(effect.parentElement))
-                effect.parentElement.removeChild(effect);
-        }, 600);
+    }
+    effect.style.width = effect.style.height = Math.max(ele.offsetWidth, ele.offsetHeight) + "px";
+    effect.style.position="absolute";
+    ele.appendChild(effect);
+    effect.style.left = offsetX - effect.offsetWidth / 2 + "px";
+    effect.style.top = offsetY - effect.offsetHeight / 2 + "px";
+    effect.classList.add("ripple");
+    if(remove)
+      setTimeout(()=>{
+          if(IsValid(effect) && IsValid(effect.parentElement))
+              effect.parentElement.removeChild(effect);
+      }, 600);
+}
+
+/**
+ * Add events that indicate when it is focused and when it is filled 
+ * with content to all entries within a container. 
+ * @param {HTMLElement} container 
+ */
+export function SetContainerInputAnimEvents(container)
+{
+    const inputs=container.querySelectorAll("input");
+    for (let i = 0; i < inputs.length; i++)
+        SetInputAnimEvents(inputs[i]);
+}
+
+/**
+ * Add events to input that indicate when it is being focused and 
+ * when it is filled with some content.
+ * @param {HTMLInputElement} input Target input
+ */
+export function SetInputAnimEvents(input)
+{
+    input.addEventListener("focus", function(e){this.parentElement.classList.add("is-focused");});
+    input.addEventListener("focusout", function (e) {
+        "" != this.value && this.parentElement.classList.add("is-filled"), this.parentElement.classList.remove("is-focused");
+    });
+    input.addEventListener("keyup", function (e) {
+        "" != this.value ? this.parentElement.classList.add("is-filled") : this.parentElement.classList.remove("is-filled");
     });
 }

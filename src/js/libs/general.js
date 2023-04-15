@@ -6,6 +6,16 @@
 
 import GlobalConstants from "../classes/global/global-const.js";
 
+/**
+ * 
+ * @param {Object} object 
+ * @returns {Object}
+ */
+export function Clone(object)
+{
+    return JSON.parse(JSON.stringify(object));
+}
+
 function pathJoin(base, rel)
 {
     return base+rel;
@@ -118,11 +128,17 @@ export function LoadTemplate(url)
 /**
  * Send a sync request to the selected url to load a JSON.
  * @param {string} url Target URL for request the JSON.
- * @returns {String | false}
+ * @param {Boolean} async
+ * @returns {String | Promise<String> | false}
  */
-export function LoadJSONFile(url)
+export async function LoadJSONFile(url, async=false)
 {
-    const result=LoadTemplate(url);
+    var result="";
+    if(async)
+        return await(await fetch(ToAbsolutePath(url))).text();
+    else
+        result=LoadTemplate(url);
+
     return JSON.parse(result);
 }
 
@@ -157,6 +173,17 @@ function Clamp(value, min=0, max=1)
 {
     return Math.min(Math.max(value, min), max);
 } 
+
+/**
+ * 
+ * @param {Number} min 
+ * @param {Number} max 
+ * @returns {Number}
+ */
+export function RandomRange(min, max)
+{
+    return Math.random() * (max - min) + min;
+}
  
 function none(){return;}
 
