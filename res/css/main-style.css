@@ -104,6 +104,32 @@
   font-style: italic;
 }
 
+/*MATERIAL ICONS*/
+@font-face {
+  font-family: "Material Icons";
+  src:url(../fonts/material-icons/material-icons.ttf);
+}
+/*MATERIAL ICONS ROUNDED*/
+@font-face {
+  font-family: "Material Icons Round";
+  src:url(../fonts/material-icons/material-icons-round.otf);
+}
+/*MATERIAL ICONS OUTLINED*/
+@font-face {
+  font-family: "Material Icons Outlined";
+  src:url(../fonts/material-icons/material-icons-outlined.otf);
+}
+/*MATERIAL ICONS SHARP*/
+@font-face {
+  font-family: "Material Icons Sharp";
+  src:url(../fonts/material-icons/material-icons-sharp.otf);
+}
+/*MATERIAL ICONS TWO TONE*/
+@font-face {
+  font-family: "Material Icons Two Tone";
+  src:url(../fonts/material-icons/material-icons-two-tone.otf);
+}
+
 .app-title {
   font-family: "Positve System";
   color: rgba(255, 255, 255, 0.6666) !important;
@@ -153,6 +179,13 @@ body{
 
 button {
     cursor: pointer;
+}
+
+.common-button{
+  transition: filter 0.25s ease-in-out;
+}
+.common-button:hover{
+  filter: brightness(1.5);
 }
 
 .col-1,
@@ -3119,4 +3152,50 @@ button {
 }
 .mb-half{
   margin-bottom: 0.125rem !important;
+}
+
+/*MATERIAL ICONS*/
+.material-icons{
+  font-family: "Material Icons" !important;
+  line-height: initial;
+}
+.material-icon_32{
+  font-size: 32px !important;
+}
+.material-icon-40px{
+  font-size: 40px !important;
+}
+.material-icon-64px{
+  font-size: 64px !important;
+}
+.material-icons-round{
+  font-family: "Material Icons Round" !important;
+  line-height: initial;
+}
+.material-icons-outlined{
+  font-family: "Material Icons Outlined" !important;
+  line-height: initial;
+}
+.material-icons-sharp{
+  font-family: "Material Icons Sharp" !important;
+  line-height: initial;
+}
+.material-icons-two-tone{
+  font-family: "Material Icons Two Tone" !important;
+  line-height: initial;
+  color: white red;
+}
+
+.icon-item {
+  aspect-ratio: 1;
+  border-radius: 7.5%;
+  background-color: transparent;
+  transition: background-color 0.25s ease-out;
+}
+.icon-item:hover,
+.icon-item.selected {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+.icon-item.selected:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
 }
