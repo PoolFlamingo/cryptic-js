@@ -1,4 +1,13 @@
-import { none } from "../../libs/general.js";
+//#region Defines
+/**
+ * @typedef {Object} TemplateData
+ * @property {String} path
+ * @property {String} div_id
+ * @property {String} id
+ */
+//#endregion
+
+import { IsValid, LoadTemplate, none } from "../../libs/general.js";
 import { Reactor } from "../global/reactor.js";
 import Translate from "../global/translation.js";
 
@@ -22,6 +31,19 @@ export default class BaseJSElement
      * @protected
      */
     _reactor;
+    //#endregion
+
+    //#region Static Properties
+    /**
+     * @type {HTMLTemplateElement}
+     * @protected
+     */
+    static _template=null;
+    /**
+     * @type {Boolean}
+     * @protected
+     */
+    static _initialized=false;
     //#endregion
 
     /**
@@ -69,6 +91,16 @@ export default class BaseJSElement
     {
         Translate.UpdateTrans(this._root);
     }
+
+    /**@protected */
+    _Create()
+    {
+        this._root=document.importNode(this.template.content, true).firstElementChild;
+
+        setTimeout(() => {
+            Translate.UpdateTrans(this._root);
+        }, 16);
+    }
     //#endregion
 
     //#region Public Methods
@@ -79,6 +111,18 @@ export default class BaseJSElement
     Remove()
     {
         this._root.outerHTML=null;
+    }
+
+    /**
+     * 
+     * @param {Boolean} show 
+     */
+    Show(show)
+    {
+        if(show)
+            this._root.classList.remove("d-none");
+        else
+            this._root.classList.add("d-none");
     }
     //#endregion
 
@@ -91,6 +135,12 @@ export default class BaseJSElement
     get reactor()
     {
         return this._reactor;
+    }
+
+    /**@protected */
+    get template()
+    {
+        return BaseJSElement._template;
     }
     //#endregion
 }

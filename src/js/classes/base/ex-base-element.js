@@ -11,23 +11,23 @@ export default class ExBaseJSElement extends BaseJSElement
      * @type {HTMLElement}
      * @protected
      */
-    _container;
+    _parent;
 
     /**
      * 
      * @param {HTMLElement|String} root 
-     * @param {HTMLElement|String} container
+     * @param {HTMLElement|String} parent
      */
-    constructor(root, container)
+    constructor(root, parent)
     {
         super(root);
         if (this.constructor === ExBaseJSElement) 
             throw new Error("Abstract classes can't be instantiated.");
         
-        if(typeof container == "string")
-            this._container=document.getElementById(container);
-        else if(container instanceof HTMLElement)
-            this._container=container;
+        if(typeof parent == "string")
+            this._parent=document.getElementById(parent);
+        else if(parent instanceof HTMLElement)
+            this._parent=parent;
         else if(root==null)
             none();
         else
@@ -43,15 +43,22 @@ export default class ExBaseJSElement extends BaseJSElement
      */
     _AppendRoot()
     {
-        if(IsValid(this._root) && IsValid(this._container))
-            this._container.appendChild(this._root);
+        if(IsValid(this._root) && IsValid(this._parent))
+            this._parent.appendChild(this._root);
+    }
+
+    /**@protected */
+    _Create()
+    {
+        super._Create();
+        this._AppendRoot();
     }
     //#endregion
 
     //#region Getters
-    get container()
+    get parent()
     {
-        return this._container;
+        return this._parent;
     }
     //#endregion
 }
