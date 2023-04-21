@@ -68,21 +68,6 @@ export default class BaseJSElement
     }
 
     //#region Static Methods
-    /**
-     * 
-     * @param {String} id 
-     * @param {String} content 
-     * @returns {HTMLElement}
-     * @protected
-     */
-    static _SetTemplateOnDocument(id, content)
-    {
-        const div=document.createElement("div");
-        div.id=id;
-        div.innerHTML=content;
-        document.head.appendChild(div);
-        return div;
-    }
     //#endregion
 
     //#region Protected Methods

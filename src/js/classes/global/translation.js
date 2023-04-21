@@ -22,11 +22,11 @@ class Translate
      * @param {String} lang
      * @param {String} attribute 
      */
-    static init(lang=defaultLang, attribute="trans")
+    static async init(lang=defaultLang, attribute="trans")
     {
         this._attribute=attribute;
 
-        this.ChangeLang(lang);
+        await this.ChangeLang(lang);
     }
 
     /**
