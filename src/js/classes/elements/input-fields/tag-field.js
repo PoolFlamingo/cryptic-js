@@ -9,6 +9,9 @@
 import { LoadTemplate } from "../../../libs/general.js";
 import ExBaseJSElement from "../../base/ex-base-element.js";
 
+/**
+ * @class
+ */
 export default
 class TagField extends ExBaseJSElement
 {
@@ -59,6 +62,7 @@ class TagField extends ExBaseJSElement
      * 
      * @param {HTMLElement|string} parent 
      * @param {TagFieldSettings} settings 
+     * @constructor
      */
     constructor(parent, settings)
     {

@@ -1,27 +1,100 @@
 //#region Defines
 /**
  * @typedef {import("javascript-obfuscator/typings/src/types/options/TInputOptions.js").TInputOptions} TInputOptions
- * @typedef {import("choices.js").Choices} Choices
+ */
+/**
+ * @typedef {import("../elements/dropdowns/choices.js").ChoicesInst} ChoicesInst
  */
 //#endregion
-import Choices  from "../elements/dropdowns/choices.js";
+import {Choice as Choices} from "../elements/dropdowns/choices.js";
 import { LoadTemplate } from "../../libs/general.js";
 import ExBaseJSElement from "../base/ex-base-element.js";
 import Translate from "../global/translation.js";
+import TagField from "../elements/input-fields/tag-field.js";
 
 export class ObfuscatorForm extends ExBaseJSElement
 {
     //#region Elements
+    //#region General Options
     /**
      * @type {HTMLButtonElement}
      * @protected
      */
     _resetButton;
     /**
-     * @type {Choices}
+     * @type {ChoicesInst}
      * @protected
      */
     _presetChoices;
+    /**
+     * @type {ChoicesInst}
+     * @protected
+     */
+    _targetChoices;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _seedInput;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _consoleOutput;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _selfDef;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _debugProtect;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _debugProtect_i;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _ignoreImports;
+    /**
+     * @type {TagField}
+     * @protected
+     */
+    _domainLock;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _domainLockRed;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _enableMaps;
+    /**
+     * @type {ChoicesInst}
+     * @protected
+     */
+    _sourceMapMode;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _sourceMapUrl;
+    /**
+     * @type {HTMLInputElement}
+     * @protected
+     */
+    _sourceMapFileName;
+    //#endregion
+
+    //#region String Transformations
+    //#endregion
     //#endregion
 
     //#region Properties
@@ -122,7 +195,63 @@ export class ObfuscatorForm extends ExBaseJSElement
                     }
                 }
             ]
-        })
+        });
+
+        this._targetChoices=new Choices(this._root.querySelector('#target'), {
+            shouldSort: false,
+            searchEnabled: false,
+            choices:[
+                {
+                    label: Translate.GetTrans("oform_07"),
+                    value: "browser"
+                },
+                {
+                    label: Translate.GetTrans("oform_08"),
+                    value: "browser_no_eval"
+                },
+                {
+                    label: Translate.GetTrans("oform_09"),
+                    value: "node"
+                }
+            ]
+        });
+
+        this._seedInput=this._root.querySelector('#seed');
+
+        this._consoleOutput=this._root.querySelector('#console-output');
+
+        this._selfDef=this._root.querySelector('#self-def');
+
+        this._debugProtect=this._root.querySelector('#debug-protection');
+
+        this._debugProtect_i=this._root.querySelector('#debug-protection-i');
+
+        this._ignoreImports=this._root.querySelector('#ignore-imports');
+
+        this._domainLock=new TagField(this._root.querySelector('#domain-lock'));
+
+        this._domainLockRed=this._root.querySelector('#domain-lock-redirect');
+
+        this._enableMaps=this._root.querySelector('#enable-maps');
+
+        this._sourceMapMode=new Choices(this._root.querySelector('#source-map-mode'), {
+            shouldSort: false,
+            searchEnabled: false,
+            choices: [
+                {
+                    label: Translate.GetTrans("oform_20"),
+                    value: "inline"
+                },
+                {
+                    label: Translate.GetTrans("oform_21"),
+                    value: "separate"
+                }
+            ]
+        });
+
+        this._sourceMapUrl=this._root.querySelector('#map-base-url');
+
+        this._sourceMapFileName=this._root.querySelector('#map-file-name');
     }
 
     /**@protected */

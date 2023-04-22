@@ -12,9 +12,6 @@
       <h6 trans="oform_06">Target</h6>
       <div class="input-group-outline">
         <select id="target" class="choices">
-          <option value="browser" trans="oform_07">Browser</option>
-          <option value="browser-no-eval" trans="oform_08">Browser No Eval</option>
-          <option value="node" trans="oform_09">Node</option>
         </select>
       </div>
       <h6 trans="oform_10">Seed</h6>
@@ -43,10 +40,7 @@
         <label class="custom-control-label" trans="oform_15">Ignore imports</label>
       </div>
       <hr class="horizontal light my-2">
-      <div class="input-group input-group-outline my-3">
-        <label class="form-label" trans="oform_16">Domain lock</label> <!--CAMBIAR POR UN CREADOR DE BADGES CON UN INPUT-->
-        <input id="domain-lock" type="text" class="form-control">
-      </div>
+      <div id="domain-lock" class="position-relative"></div>
       <div class="input-group input-group-outline my-3">
         <label class="form-label" trans="oform_17">Domain lock redirect url</label>
         <input id="domain-lock-redirect" type="text" class="form-control" value="about:blank">
@@ -57,8 +51,8 @@
         <label class="custom-control-label" trans="oform_18">Enable source map</label>
       </div>
       <h6 trans="oform_19">Source map mode</h6>
-      <div class="input-group-outline">
-        <select id="source-map-mode" class="choices">
+      <div id="source-map-mode" class="input-group-outline">
+        <select class="choices">
           <option value="inline" trans="oform_20">Inline</option>
           <option value="separate" trans="oform_21">Separate</option>
         </select>
